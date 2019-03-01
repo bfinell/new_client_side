@@ -17,7 +17,7 @@ class AddStock extends Component {
         let total;
         let price;
 
-        var finalUrl ='https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol='+this.refs.name.value+'&apikey=KV4MHKHP1XKOM8MJ';
+        var finalUrl ='https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol='+this.refs.symbol.value+'&apikey=KV4MHKHP1XKOM8MJ';
 
         console.log(finalUrl);
         fetch(finalUrl)

@@ -12,19 +12,14 @@ class App extends Component {
       portfolios:[]
     }}
 
-    getPortfolios(){
-      this.setState({portfolios:[
-          {
-            id:uuid.v4(),
-            name:"tes1",
-            amount:1
-          }
-        ]});
-    }
+
 
   componentWillMount() {
-      this.getPortfolios();
-  }
+        this.setState({portfolios:[],
+          amount:0
+        });
+      }
+
   handleAddPortfolio(portfolio){
     let portfolios=this.state.portfolios;
     portfolios.push(portfolio);
@@ -44,7 +39,7 @@ class App extends Component {
     return (
       <div className="App">
           <AddPortfolio addPortfolio={this.handleAddPortfolio.bind(this)}/>
-          <Portfolios portfolio={this.state.portfolios} onDelete={this.handleDeletePortfolio.bind(this)}/>
+          <Portfolios portfolios={this.state.portfolios} onDelete={this.handleDeletePortfolio.bind(this)}/>
       </div>
     );
   }

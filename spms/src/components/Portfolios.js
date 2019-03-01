@@ -16,21 +16,22 @@ import PortfolioItems from './PortfolioItems';
         render() {
             let portfolioItems;
             if(this.props.portfolios) {
-            portfolioItems = this.props.portfolios.map(portfolio => {
-         //       console.log(portfolio);
                 console.log("hej")
-                return (
-                    <PortfolioItems onDelete = {this.deletePortfolio.bind(this)}
-                                    key ={portfolio.name} portfolio ={portfolio}/>
-                                    );
-                });}
-        return(
+
+                portfolioItems = this.props.portfolios.map(portfolio => {
+                    //       console.log(portfolio);
+                    return (
+                        <PortfolioItems onDelete={this.deletePortfolio.bind(this)}
+                                        key={portfolio.name} portfolio={portfolio}/>
+                    );
+                });
+            }
+            return(
             <div className={"Portfolios"}>
                 <h3>My Portfolios</h3>
-
                 {portfolioItems}
             </div>
-        );
+             );
 
         }
     }
