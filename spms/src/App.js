@@ -15,7 +15,11 @@ class App extends Component {
 
 
   componentWillMount() {
-        this.setState({portfolios:[],
+        this.setState({portfolios:[
+            {name:"jurgen",
+              id:uuid.v4()
+            }
+          ],
           amount:0
         });
       }

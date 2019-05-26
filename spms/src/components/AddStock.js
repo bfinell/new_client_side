@@ -7,13 +7,11 @@ class AddStock extends Component {
         super();
         this.state = {
             newStock: {},
-            totalValue: 0,
             currency: "usd"
         }
     }
 
     getStocks(e){
-
         let total;
         let price;
 
@@ -42,10 +40,10 @@ class AddStock extends Component {
                         quantity: this.refs.quantity.value,
                         price:price,
                         total:total,
+                    //    totalValue: this.totalValue + total
                     }},
                     function() {
                          this.props.addStock(this.state.newStocks, total);
-
                     });
                 });
 
@@ -57,6 +55,7 @@ class AddStock extends Component {
         return(
             <div className={"addStock"} id={"addStock"+this.props.id}>
                 <h3> Add Stock </h3>
+                <h4> Portfolio Value: {this.props.totalValue} </h4>
                 <form onSubmit={this.getStocks.bind(this)}>
                     <div>
                     <label>Stock Symbol</label>
