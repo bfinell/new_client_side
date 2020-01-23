@@ -12,11 +12,12 @@ class AddPortfolio extends Component{
         if (this.refs.name.value===''){
             alert('Name is required')
         }
-        else if (this.props.amount === 10){
+        else if (this.props.amount > 10){
             alert("you cannot create over 10 portofolios")
         }
         else{
             this.setState({newPortfolio:{
+                //    amount:this.props.amount+1,
                     id: uuid.v4(),
                     name: this.refs.name.value
                 }},function (){
