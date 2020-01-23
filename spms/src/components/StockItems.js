@@ -15,7 +15,7 @@ render() {
         <td>{this.props.stock.symbol}</td>
         <td>{this.props.stock.price}</td>
         <td>{this.props.stock.quantity}</td>
-        <td>{this.props.stock.totalPrice}</td>
+        <td>{this.props.stock.total}</td>
 
         </tr>
 );

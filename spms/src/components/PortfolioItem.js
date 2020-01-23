@@ -4,7 +4,7 @@ import AddStock from './AddStock';
 
 
 
-class PortfolioItems extends Component{
+class PortfolioItem extends Component{
     constructor() {
         super();
         this.state = {
@@ -14,12 +14,12 @@ class PortfolioItems extends Component{
             portoflioAmount: 0
         }
     }
-    handleAddStocks(stock, amount){
+    handleAddStocks=(stock, amount)=>{
         let portfolioAmount = amount;
         let stocks = this.state.stocks;
         stocks.push(stock);
         this.setState({stocks:stocks, portfolioAmount: (parseFloat(amount)+parseFloat(portfolioAmount)).toFixed(2)});
-    }
+    };
 
     deletePortfolioItems(id){
         this.props.onDelete(id);
@@ -37,12 +37,11 @@ class PortfolioItems extends Component{
     render() {
         return(
             <div className={"Portfolios"}>
-                <strong>yeet</strong>
-                <strong>{this.props.portfolio.name}</strong><a href={'#'} onClick={this.deletePortfolioItems.bind(this, this.props.portfolio.id)}>x</a>
-                <AddStock addStock={this.handleAddStocks.bind(this)} id={this.props.portfolio.id} amount={this.props.amount}/>
+                <strong>{this.props.portfolio.name}</strong><button onClick={this.props.onDelete.bind(this, this.props.portfolio.id)}>x</button>
+                <AddStock addStock={this.handleAddStocks} id={this.props.portfolio.id} amount={this.props.amount}/>
                 <Stocks stocks={this.state.stocks} name={this.props.portfolio.name} stockSelect={this.selectedStock.bind(this)}/>
             </div>
           )
     }
 
-}    export default PortfolioItems;
+}    export default PortfolioItem;

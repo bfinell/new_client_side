@@ -14,10 +14,11 @@ class AddStock extends Component {
 
     getStocks(e){
 
+        e.preventDefault();
         let total;
         let price;
 
-        var finalUrl ='https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol='+this.refs.name.value+'&apikey=KV4MHKHP1XKOM8MJ';
+        var finalUrl ='https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol='+this.refs.symbol.value+'&apikey=KV4MHKHP1XKOM8MJ';
 
         console.log(finalUrl);
         fetch(finalUrl)
@@ -33,6 +34,7 @@ class AddStock extends Component {
                 price = data["Global Quote"]["05. price"];
                 console.log(price)
                 total = price*this.refs.quantity.value;
+                total = (parseFloat(total).toFixed(2))+"$"
 
                 price = (parseFloat(price).toFixed(2))+"$";
 
@@ -50,7 +52,6 @@ class AddStock extends Component {
                 });
 
 
-                e.preventDefault();
             }
     render() {
 
